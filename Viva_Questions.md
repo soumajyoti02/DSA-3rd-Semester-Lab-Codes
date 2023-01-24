@@ -130,7 +130,9 @@ Ans) One way to implement a deep copy of a singly linked list is to create a new
 ## Q) How do you merge two sorted linked lists?
 Ans) One way to merge two sorted linked lists is to create a new linked list, and then iterate through both original lists, comparing the current nodes of each list and adding the smallest value to the new list. Repeat this process until one of the original lists is empty, then add all remaining elements of the other original list to the new list.
 <hr>
+
 # Circular Linked List
+
 ## Q) What is a circular linked list?
 Ans) A circular linked list is a type of linked list where the last node points back to the first node, creating a circular loop.
 
@@ -140,7 +142,9 @@ Ans) The difference between a singly linked list and a circular linked list is t
 ## Q) What are the advantages of using a circular linked list over a singly linked list?
 Ans) Advantages of using a circular linked list over a singly linked list are that it eliminates the need to check for the last node while traversing, it can be used in a scenario where a circular buffer is required and it can be used in a scenario where a circular list is required.
 <hr>
+
 # Doubly Linked List
+
 ## Q) What is a doubly linked list?
 Ans) A doubly linked list is a type of linked list where each node contains a reference to the previous node as well as the next node.
 
@@ -198,7 +202,9 @@ Ans) The time complexity for inserting an element in an AVL tree is O(log(n)), w
 ## Q) What is the time complexity for deleting an element in an AVL tree?
 Ans) The time complexity for deleting an element in an AVL tree is O(log(n)), where n is the number of nodes in the tree.
 <hr>
+
 # Graph
+
 ## Q) What is a graph?
 Ans) A graph is a non-linear data structure that consists of a finite set of vertices(or nodes) and a set of edges that connect them.
 
@@ -256,7 +262,9 @@ Ans) A simple path is a path that does not contain any repeated vertices.
 ## Q) What is a simple cycle?
 Ans) A simple cycle is a cycle that does not contain any repeated vertices.
 <hr>
+
 # Hashing
+
 ## Q) What is hashing?
 Ans) Hashing is a technique of mapping a large data set to a smaller data set by using a hash function.
 

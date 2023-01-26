@@ -15,7 +15,7 @@ Algorithm:
             ---> Call the insert_at_first function, passing in the head and the data
     --> if the choice is 2, 
             ---> Prompt the user for the data to be inserted
-            ---> check if head is NULL, if it's true then
+            ---> check if head is NULL, if its true then
                  ---> Call the insert_at_first function, passing in the head and the data
             --->else 
                  ---> Call the insert_at_last function, passing in the head and the data
@@ -30,7 +30,7 @@ Algorithm:
 *** insert_at_first function: ***
 
 --> Allocate memory for a new node using malloc and store the data in the new node
---> Make the new node's next point to the current head
+--> Make the new nodes next point to the current head
 --> Update the head to point to the new node
 
 ***insert_at_last function: ***

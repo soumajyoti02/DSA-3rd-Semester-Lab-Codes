@@ -9,7 +9,7 @@ Algorithm:
 
 -> Initialize head to NULL
 -> Continuously prompt the user for a choice until the user chooses to exit
--> Depending on the user's choice:
+-> Depending on the users choice:
     --> if the choice is 1, 
             ---> Prompt the user for the data to be inserted
             ---> Call the insert_at_first function, passing in the head and the data
@@ -37,7 +37,7 @@ Algorithm:
 
 --> Create a new node with the data passed in
 --> Traverse the list starting at the head until the last node is reached
---> Set the last node's next to point to the new node
+--> Set the last nodes next to point to the new node
 
 *** insert_at_position function: ***
 

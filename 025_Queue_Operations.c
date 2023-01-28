@@ -45,7 +45,7 @@ Create a main function
 ---> Create a pointer of type Queue, 'queue' and initialize it by calling the 'createQueue' function with capacity as an argument.
 ---> Create a variable 'choice' and 'item'
 ---> Use an infinite loop
----> In the loop, Use switch case to handle user's choice of operation.
+---> In the loop, Use switch case to handle users choice of operation.
 ---> case 1: enqueue
 ---> case 2: dequeue
 ---> case 3: display

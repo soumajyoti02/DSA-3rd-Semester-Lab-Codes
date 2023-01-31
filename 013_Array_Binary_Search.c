@@ -15,47 +15,52 @@ Binary Search Algorithm: The basic steps to perform Binary Search are:
 Code Below ::::::::
 --------------------------------------------------------------------------
   
-// C program to implement recursive Binary Search
-#include <stdio.h>
-
-// A recursive binary search function. It returns
-// location of x in given array arr[l..r] is present,
-// otherwise -1
-int binarySearch(int arr[], int l, int r, int x)
-{
-	if (r >= l) {
-		int mid = l + (r - l) / 2;
-
-		// If the element is present at the middle
-		// itself
-		if (arr[mid] == x)
-			return mid;
-
-		// If element is smaller than mid, then
-		// it can only be present in left subarray
-		if (arr[mid] > x)
-			return binarySearch(arr, l, mid - 1, x);
-
-		// Else the element can only be present
-		// in right subarray
-		return binarySearch(arr, mid + 1, r, x);
-	}
-
-	// We reach here when element is not
-	// present in array
-	return -1;
+#include<stdio.h>
+ 
+int linearSearch(int arr[], int size, int element){
+    for (int i = 0; i < size; i++)
+    {
+        if(arr[i]==element){
+            return i;
+        }
+    }
+    return -1;
+}
+ 
+int binarySearch(int arr[], int size, int element){
+    int low, mid, high;
+    low = 0;
+    high = size-1;
+    // Keep searching until low <= high
+    while(low<=high){
+        mid = (low + high)/2;
+        if(arr[mid] == element){
+            return mid;
+        }
+        if(arr[mid]<element){
+            low = mid+1;
+        }
+        else{
+            high = mid -1;
+        }
+    } 
+    return -1;
+    
+}
+ 
+int main(){
+    // Unsorted array for linear search
+    // int arr[] = {1,3,5,56,4,3,23,5,4,54634,56,34};
+    // int size = sizeof(arr)/sizeof(int);
+ 
+    // Sorted array for binary search
+    int arr[] = {1,3,5,56,64,73,123,225,444};
+    int size = sizeof(arr)/sizeof(int);
+    int element = 444;
+    int searchIndex = binarySearch(arr, size, element);
+    printf("The element %d was found at index %d \n", element, searchIndex);
+    return 0;
 }
 
-int main(void)
-{
-	int arr[] = { 2, 3, 4, 10, 40 };
-	int n = sizeof(arr) / sizeof(arr[0]);
-	int x = 10;
-	int result = binarySearch(arr, 0, n - 1, x);
-	(result == -1)
-		? printf("Element is not present in array")
-		: printf("Element is present at index %d", result);
-	return 0;
-}
 
 

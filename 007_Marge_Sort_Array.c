@@ -44,107 +44,75 @@ Code Below :::
   
   
 #include <stdio.h>
-#include <stdlib.h>
 
-/*
-    This function takes in the original array, left and right indices of the subarray,
-    and merges the subarray in a sorted manner.
-*/
-void merge(int *arr, int leftIdx, int middleIdx, int rightIdx) {
-    // Initialize variables
-    int i, j, k;
-    int leftArrSize = middleIdx - leftIdx + 1;
-    int rightArrSize = rightIdx - middleIdx;
-
-    // Create temporary arrays to store left and right subarrays
-    int *leftArr = (int*)malloc(leftArrSize * sizeof(int));
-    int *rightArr = (int*)malloc(rightArrSize * sizeof(int));
-
-    // Copy elements from original array to left and right subarrays
-    for (i = 0; i < leftArrSize; i++) {
-        leftArr[i] = arr[leftIdx + i];
+void printArray(int *A, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", A[i]);
     }
-    for (j = 0; j < rightArrSize; j++) {
-        rightArr[j] = arr[middleIdx + 1 + j];
-    }
+    printf("\n");
+}
 
-    // Merge the temp arrays back into arr[leftIdx..rightIdx]
-    i = 0; // Initial index of first subarray
-    j = 0; // Initial index of second subarray
-    k = leftIdx; // Initial index of merged subarray
-    while (i < leftArrSize && j < rightArrSize) {
-        if (leftArr[i] <= rightArr[j]) {
-            arr[k] = leftArr[i];
+void merge(int A[], int mid, int low, int high)
+{
+    int i, j, k, B[100];
+    i = low;
+    j = mid + 1;
+    k = low;
+
+    while (i <= mid && j <= high)
+    {
+        if (A[i] < A[j])
+        {
+            B[k] = A[i];
             i++;
-        } else {
-            arr[k] = rightArr[j];
-            j++;
+            k++;
         }
-        k++;
+        else
+        {
+            B[k] = A[j];
+            j++;
+            k++;
+        }
     }
-
-    // Copy the remaining elements of leftArr, if there are any
-    while (i < leftArrSize) {
-        arr[k] = leftArr[i];
+    while (i <= mid)
+    {
+        B[k] = A[i];
+        k++;
         i++;
-        k++;
     }
-
-    // Copy the remaining elements of rightArr, if there are any
-    while (j < rightArrSize) {
-        arr[k] = rightArr[j];
+    while (j <= high)
+    {
+        B[k] = A[j];
+        k++;
         j++;
-        k++;
     }
-
-    // Free the allocated memory
-    free(leftArr);
-    free(rightArr);
+    for (int i = low; i <= high; i++)
+    {
+        A[i] = B[i];
+    }
+    
 }
 
-/*
-    This function takes in the original array, left and right indices of the subarray,
-    and sorts the subarray using the merge sort algorithm.
-*/
-void mergeSort(int *arr, int leftIdx, int rightIdx) {
-    if (leftIdx < rightIdx) {
-        // Find the middle point
-        int middleIdx = leftIdx + (rightIdx - leftIdx) / 2;
-
-        // Sort first and second halves
-        mergeSort(arr, leftIdx, middleIdx);
-        mergeSort(arr, middleIdx + 1, rightIdx);
-
-        // Merge the sorted halves
-        merge(arr, leftIdx, middleIdx, rightIdx);
+void mergeSort(int A[], int low, int high){
+    int mid; 
+    if(low<high){
+        mid = (low + high) /2;
+        mergeSort(A, low, mid);
+        mergeSort(A, mid+1, high);
+        merge(A, mid, low, high);
     }
 }
 
-int main() {
-    int numElements;
-    printf("Enter the number of elements in the array: ");
-    scanf("%d", &numElements);
-
-    // Create an array of user-specified size
-    int *arr = (int*)malloc(numElements * sizeof(int));
-
-    // Get elements from user
-    printf("Enter %d elements: ", numElements);
-    for (int i = 0; i < numElements; i++) {
-        scanf("%d", &arr[i]);
-    }
-
-    // Perform merge sort on the array
-    mergeSort(arr, 0, numElements - 1);
-
-    // Print the sorted array
-    printf("Sorted array: ");
-    for (int i = 0; i < numElements; i++) {
-        printf("%d ", arr[i]);
-    }
-
-    // Free the allocated memory
-    free(arr);
+int main()
+{
+    // int A[] = {9, 14, 4, 8, 7, 5, 6};
+    int A[] = {9, 1, 4, 14, 4, 15, 6};
+    int n = 7;
+    printArray(A, n);
+    mergeSort(A, 0, 6);
+    printArray(A, n);
     return 0;
 }
 
